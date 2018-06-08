@@ -52,14 +52,14 @@ class ObjectMultiplex extends Duplex {
     const name = chunk.name
     const data = chunk.data
     if (!name) {
-      console.warn(`ObjectMultiplex - malformed chunk without name "${chunk}"`)
+      // console.warn(`ObjectMultiplex - malformed chunk without name "${chunk}"`)
       return callback()
     }
 
     // get corresponding substream
     const substream = this._substreams[name]
     if (!substream) {
-      console.warn(`ObjectMultiplex - orphaned data for stream "${name}"`)
+      // console.warn(`ObjectMultiplex - orphaned data for stream "${name}"`)
       return callback()
     }
 
